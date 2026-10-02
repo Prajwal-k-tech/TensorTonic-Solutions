@@ -4,9 +4,9 @@ A small machine-learning practice archive synchronized from [TensorTonic](https:
 
 ## Current implementation notes
 
-- Dot product currently calls `numpy.dot`; it is not a manual multiply-and-sum implementation, despite the synchronized problem description below.
+- Dot product multiplies corresponding elements and sums them directly; unequal lengths raise ValueError.
 - Cosine similarity uses NumPy dot products and norms and returns zero when either norm is zero.
-- Sigmoid uses `numpy.vectorize` around the direct exponential formula. Large negative inputs can overflow internally; scalar-return and empty-array behavior require improvement before claiming complete edge-case coverage.
+- Sigmoid uses sign-separated NumPy operations to avoid exponential overflow, returns a float for scalar input, and preserves array shape, including empty arrays.
 
 The generated platform section below is retained for synchronization. Its verification badge reflects the platform record, not an independent audit of every edge case or a claim about repository-wide quality. Each exercise folder contains code and accompanying notes. Install NumPy in a virtual environment to explore the snippets; no package or test suite is configured.
 
@@ -27,3 +27,7 @@ Verified machine learning implementations completed on [TensorTonic](https://www
 
 View my verified ML profile: [TensorTonic profile](https://www.tensortonic.com/profile/prajwal_k141205)
 <!-- tensortonic:end -->
+
+## Local checks
+
+On 2 October 2026, direct Python checks passed for sigmoid scalars, matrices, empty arrays, ±1000, infinities and NaN; dot-product values, empty vectors and length mismatch; and cosine zero, orthogonal and identical vectors. These local changes do not update or re-certify the platform badge. NumPy was the only runtime dependency used.
