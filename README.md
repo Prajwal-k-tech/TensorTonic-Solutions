@@ -1,14 +1,14 @@
 # TensorTonic Solutions
 
-Welcome to my TensorTonic solutions repository!
+A small machine-learning practice archive synchronized from [TensorTonic](https://www.tensortonic.com). It currently contains dot product, cosine similarity and sigmoid exercises. This is supporting study work rather than a research project or general ML library.
 
-Here you'll find my solutions to various machine learning and deep learning problems from [TensorTonic](https://tensortonic.com).
+## Current implementation notes
 
-## What is TensorTonic?
+- Dot product currently calls `numpy.dot`; it is not a manual multiply-and-sum implementation, despite the synchronized problem description below.
+- Cosine similarity uses NumPy dot products and norms and returns zero when either norm is zero.
+- Sigmoid uses `numpy.vectorize` around the direct exponential formula. Large negative inputs can overflow internally; scalar-return and empty-array behavior require improvement before claiming complete edge-case coverage.
 
-TensorTonic is a platform where you can implement core algorithms of Machine Learning from scratch.
-
-This repository contains my personal solutions to these problems, automatically synchronized from the platform.
+The generated platform section below is retained for synchronization. Its verification badge reflects the platform record, not an independent audit of every edge case or a claim about repository-wide quality. Each exercise folder contains code and accompanying notes. Install NumPy in a virtual environment to explore the snippets; no package or test suite is configured.
 
 <!-- tensortonic:start -->
 # Prajwal K's TensorTonic Solutions
